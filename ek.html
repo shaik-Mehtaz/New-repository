@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="fav-icon.png" type="image/x-icon">
+    <style>
+        .search-bar {
+            display: none;
+            padding: 10px;
+        }
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="side" class="sidebar">
+        <div class="icon">
+            <a href=""><img src="Spotify Logo.png" alt="Spotify Logo"></a>
+        </div>
+        <div class="home">
+            <ul>
+                <li><a href=""><span class="fa fa-home"></span><span>Home</span></a></li>
+                <li><a href="#" onclick="toggleSearchBar()"><span class="fa fa-search"></span><span>Search</span></a></li>
+                <li><a href=""><span class="fa fas fa-book"></span><span>Library</span></a></li>
+            </ul>
+        </div>
+        <div class="Hsongs">
+            <ul>
+                <li><a href=""><span class="fa fa-home"></span><span> Playlist</span></a></li>
+                <li><a href=""><span class="fa fa-search"></span><span>Liked Songs</span></a></li>
+            </ul>
+        </div>
+        <div class="Hpolicies">
+            <ul>
+                <li><a href="">Cookies</a></li>
+                <li><a href="">Privacy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="topbar">
+            <div class="pre-next-button">
+                <button type="button" class="fa fa-chevron-left"></button>
+                <button type="button" class="fa fa-chevron-right"></button>
+            </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="signup.html" target="_blank">Sign up</a></li>
+                </ul>
+                <a href="login.html" target="_blank">
+                    <button type="button" id="logbtn"><b>Login</b></button>
+                </a>
+                <a href=""><i class="fa fa-bars" id="btn" onclick="toggleSidebar()"></i></a>
+            </div>
+        </div>
+        
+        <div class="search-bar" id="search-bar">
+            <input type="text" id="search-input" onkeyup="filterSongs()" placeholder="Search for songs...">
+        </div>
+        
+        <div class="spotify-playlists">
+            <h2>Spotify Playlists</h2>
+            <div class="list">
+                <div class="item" onclick="playAudio('todays-top-hits.mp3')">
+                    <img src="Today's Top Hits.jpeg" alt="" height="150" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>Today's Top Hits</h4>
+                    <p>BTS is on the top of the Hottest 50</p>
+                </div>
+                <div class="item" onclick="playAudio('dreamers.mp3')">
+                    <img src="dreamer.jpg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>JungKook</h4>
+                    <p>New Music from JK, Dreamers...</p>
+                </div>
+                <div class="item" onclick="playAudio('butter.mp3')">
+                    <img src="butter.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>Butter BTS</h4>
+                    <p>New Music from BTS, Smooth Like Butter...</p>
+                </div>
+                <div class="item" onclick="playAudio('ptd.mp3')">
+                    <img src="pt..png" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>PTD BTS</h4>
+                    <p>New Music from BTS, Permission To Dance...</p>
+                </div>
+                <div class="item" onclick="playAudio('on.mp3')">
+                    <img src="on.jpg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>ON BTS</h4>
+                    <p>New Music from BTS, ON and ON...</p>
+                </div>
+                <div class="item" onclick="playAudio('dynamite.mp3')">
+                    <img src="dynamite.jpg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>Dynamite BTS</h4>
+                    <p>New Music from BTS, Like Dynamite...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="spotify-playlists">
+            <h2>Spotify Playlists</h2>
+            <div class="list">
+                <div class="item" onclick="playAudio('dua.mp3')">
+                    <img src="dua.jpeg" alt="" height="150" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>Today's Top Hits</h4>
+                    <p>BTS is on the top of the Hottest 50</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster.mp3')">
+                    <img src="1.jpg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster2.mp3')">
+                    <img src="2.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster3.mp3')">
+                    <img src="3.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster4.mp3')">
+                    <img src="4.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster5.mp3')">
+                    <img src="5.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="spotify-playlists">
+            <h2>Spotify Playlists</h2>
+            <div class="list">
+                <div class="item" onclick="playAudio('todays-top-hits.mp3')">
+                    <img src="Today's Top Hits.jpeg" alt="" height="150" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>Today's Top Hits</h4>
+                    <p>BTS is on the top of the Hottest 50</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster.mp3')">
+                    <img src="RM.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster2.mp3')">
+                    <img src="RM.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster3.mp3')">
+                    <img src="RM.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster4.mp3')">
+                    <img src="RM.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+                <div class="item" onclick="playAudio('rapmonster5.mp3')">
+                    <img src="RM.jpeg" alt="" height="150px" width="200px">
+                    <div class="play"><span class="fa fa-play"></span></div>
+                    <h4>RapMonster</h4>
+                    <p>New Music from RM, Wildest Flower...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="audiplayer" controls style="display:none;">
+        nthg
+    </audio>
+    <script>
+       var currentAudio = null;
+function playAudio(audioFile) {
+    var audiPlayer = document.getElementById('audiplayer');
+    if (currentAudio === audioFile && !audiPlayer.paused) {
+        audiPlayer.pause();
+    } else {
+        audiPlayer.src = audioFile;
+        audiPlayer.play();
+        currentAudio = audioFile;
+    }
+}
+
+function toggleSearchBar() {
+    var searchBar = document.getElementById('search-bar');
+    if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+        searchBar.style.display = 'block';
+    } else {
+        searchBar.style.display = 'none';
+    }
+}
+
+function filterSongs() {
+    var input, filter, songList, items, h4, i, txtValue;
+    input = document.getElementById('search-input');
+    filter = input.value.toUpperCase();
+    songList = document.getElementById('song-list');
+    items = songList.getElementsByClassName('item');
+
+    for (i = 0; i < items.length; i++) {
+        h4 = items[i].getElementsByTagName('h4')[0];
+        txtValue = h4.textContent || h4.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            items[i].style.display = '';
+        } else {
+            items[i].style.display = 'none';
+        }
+    }
+}      
+    </script>
+    <script src="https://kit.fontawesome.com/ef9a692198.js" crossorigin="anonymous"></script>
+</body>
+</html>
